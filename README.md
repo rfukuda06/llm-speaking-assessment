@@ -62,12 +62,6 @@ A prompt card with structured bullet points and a one-minute preparation timer. 
 
 <img src="screenshots/part2.png" alt="Part 2 — Long Turn" width="800">
 
-**Part 3 — Discussion**
-
-Three abstract follow-up questions tied to the Part 2 theme. The examiner probes deeper for reasoning, examples, and thematic depth.
-
-<img src="screenshots/part3.png" alt="Part 3 — Discussion" width="800">
-
 **Results**
 
 Hybrid scoring combines objective speech metrics with LLM rubric evaluation, producing an IELTS band score, CEFR level, written feedback, and a per-criterion breakdown.
