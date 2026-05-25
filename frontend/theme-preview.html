@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theme Preview — Black & Red</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   THEME SYSTEM
+   Each theme overrides the same set of variables. Status colors
+   (green / orange / amber / record-red) are global, untouched.
+   ============================================================ */
+
+:root {
+    /* Status colors — identical across all 3 themes */
+    --status-green:        #00D492;
+    --status-green-dark:   #00BC7D;
+    --status-green-light:  #5EE9B5;
+    --status-green-bg:     rgba(0,188,125,0.20);
+    --status-green-bg-15:  rgba(0,188,125,0.15);
+
+    --status-orange:       #FE9A00;
+    --status-orange-hi:    #FFB900;
+    --status-amber:        #FBBF24;
+    --status-amber-gold:   #FFD230;
+    --status-orange-bg:    rgba(254,154,0,0.20);
+    --status-orange-bg-10: rgba(254,154,0,0.10);
+    --status-orange-bg-15: rgba(254,154,0,0.15);
+    --status-amber-bg-10:  rgba(251,191,36,0.10);
+    --status-amber-bg-30:  rgba(251,191,36,0.30);
+
+    --record-red:          #ef4444;
+    --record-red-rgba-40:  rgba(239,68,68,0.4);
+    --record-red-rgba-30:  rgba(239,68,68,0.3);
+    --record-red-rgba-0:   rgba(239,68,68,0);
+
+    /* radii reused */
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+}
+
+/* ------------ Theme 1: Crimson Noir ------------ */
+[data-theme="crimson"] {
+    --primary:         #E50914;
+    --primary-light:   #FF3144;
+    --primary-dark:    #B91C1C;
+    --primary-rgb:     229, 9, 20;          /* used for rgba() */
+    --primary-soft-rgb:252, 165, 165;       /* light coral — replaces #DAB2FF accent text */
+    --primary-mid-rgb: 245, 158, 158;
+    --primary-hi-rgb:  255, 235, 235;
+
+    --accent-text:        #FCA5A5;
+    --accent-text-strong: #FFE4E6;
+    --accent-text-mid:    #F87171;
+
+    --text-primary:    #FAFAFA;
+    --text-secondary:  rgba(250, 250, 250, 0.70);
+    --text-muted:      rgba(252, 165, 165, 0.50);
+
+    --bg-base:         #0A0A0A;
+    --bg-card:         rgba(255, 255, 255, 0.05);
+    --bg-card-hover:   rgba(255, 255, 255, 0.08);
+    --bg-elevated:     rgba(255, 255, 255, 0.10);
+    --border:          rgba(255, 255, 255, 0.10);
+    --border-hover:    rgba(255, 255, 255, 0.20);
+
+    --box-bg:          rgba(229, 9, 20, 0.12);
+    --box-border:      #E50914;
+
+    --body-gradient: linear-gradient(144deg,
+        #050505 0%, #070707 14%, #0A0A0A 28%,
+        #0C0808 50%, #0A0606 72%, #080404 86%, #050202 100%);
+
+    --hero-gradient: linear-gradient(90deg, #B91C1C, #7F1D1D);
+    --ring-stop-1:   #E50914;
+    --ring-stop-2:   #B91C1C;
+
+    --glow-md: 0 4px 14px rgba(229, 9, 20, 0.40);
+    --glow-lg: 0 6px 20px rgba(229, 9, 20, 0.50);
+    --glow-btn: 0 10px 15px rgba(229,9,20,0.30), 0 4px 6px rgba(229,9,20,0.30);
+}
+
+/* ------------ Theme 2: Carbon Ember ------------ */
+[data-theme="ember"] {
+    --primary:         #DC2626;
+    --primary-light:   #F87171;
+    --primary-dark:    #991B1B;
+    --primary-rgb:     220, 38, 38;
+    --primary-soft-rgb:254, 202, 202;
+    --primary-mid-rgb: 248, 113, 113;
+    --primary-hi-rgb:  255, 237, 213;
+
+    --accent-text:        #FECACA;
+    --accent-text-strong: #FED7AA;
+    --accent-text-mid:    #FB923C;
+
+    --text-primary:    #FAF5E6;
+    --text-secondary:  rgba(250, 245, 230, 0.70);
+    --text-muted:      rgba(254, 215, 170, 0.55);
+
+    --bg-base:         #0E0907;
+    --bg-card:         rgba(255, 240, 225, 0.04);
+    --bg-card-hover:   rgba(255, 240, 225, 0.07);
+    --bg-elevated:     rgba(255, 240, 225, 0.09);
+    --border:          rgba(255, 230, 210, 0.10);
+    --border-hover:    rgba(255, 230, 210, 0.20);
+
+    --box-bg:          rgba(220, 38, 38, 0.12);
+    --box-border:      #DC2626;
+
+    --body-gradient: linear-gradient(155deg,
+        #0B0604 0%, #0E0907 14%, #110A07 30%,
+        #14100B 50%, #100A07 70%, #0D0805 86%, #0B0604 100%);
+
+    --hero-gradient: linear-gradient(90deg, #991B1B, #7C2D12);
+    --ring-stop-1:   #DC2626;
+    --ring-stop-2:   #F97316;
+
+    --glow-md: 0 4px 14px rgba(220, 38, 38, 0.32);
+    --glow-lg: 0 6px 20px rgba(220, 38, 38, 0.42);
+    --glow-btn: 0 10px 15px rgba(220,38,38,0.22), 0 4px 6px rgba(220,38,38,0.22);
+}
+
+/* ------------ Theme 3: Neon Pulse ------------ */
+[data-theme="neon"] {
+    --primary:         #FF1744;
+    --primary-light:   #FF5577;
+    --primary-dark:    #D50032;
+    --primary-rgb:     255, 23, 68;
+    --primary-soft-rgb:255, 180, 192;
+    --primary-mid-rgb: 255, 100, 130;
+    --primary-hi-rgb:  255, 220, 230;
+
+    --accent-text:        #FFB4C0;
+    --accent-text-strong: #FFE4EA;
+    --accent-text-mid:    #FF5577;
+
+    --text-primary:    #FFFFFF;
+    --text-secondary:  rgba(255, 255, 255, 0.72);
+    --text-muted:      rgba(255, 180, 192, 0.55);
+
+    --bg-base:         #000000;
+    --bg-card:         rgba(255, 30, 80, 0.04);
+    --bg-card-hover:   rgba(255, 30, 80, 0.08);
+    --bg-elevated:     rgba(255, 30, 80, 0.10);
+    --border:          rgba(255, 255, 255, 0.08);
+    --border-hover:    rgba(255, 23, 68, 0.40);
+
+    --box-bg:          rgba(255, 23, 68, 0.14);
+    --box-border:      #FF1744;
+
+    --body-gradient:
+        radial-gradient(ellipse at 50% 0%, rgba(255,23,68,0.18) 0%, rgba(0,0,0,0) 50%),
+        radial-gradient(ellipse at 80% 100%, rgba(255,23,68,0.10) 0%, rgba(0,0,0,0) 60%),
+        #000000;
+
+    --hero-gradient: linear-gradient(90deg, #FF1744, #C20029);
+    --ring-stop-1:   #FF1744;
+    --ring-stop-2:   #FF5577;
+
+    --glow-md: 0 4px 14px rgba(255, 23, 68, 0.50), 0 0 28px rgba(255, 23, 68, 0.20);
+    --glow-lg: 0 6px 20px rgba(255, 23, 68, 0.60), 0 0 40px rgba(255, 23, 68, 0.30);
+    --glow-btn: 0 10px 15px rgba(255,23,68,0.35), 0 0 30px rgba(255,23,68,0.30);
+}
+
+/* ============================================================
+   PREVIEW CHROME (the wrapper around the demos)
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--body-gradient);
+    background-attachment: fixed;
+    color: #fff;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.5s ease;
+}
+
+.preview-shell {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+}
+
+.preview-head {
+    position: sticky; top: 0; z-index: 50;
+    margin: 0 -24px;
+    padding: 20px 24px 16px;
+    background: linear-gradient(to bottom, var(--bg-base) 0%, var(--bg-base) 70%, transparent 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+.preview-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent-text);
+    margin-bottom: 4px;
+}
+.preview-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500; font-size: 32px; letter-spacing: -0.5px;
+    color: var(--text-primary);
+    margin: 0 0 18px;
+}
+.preview-title em { font-style: italic; color: var(--primary); font-weight: 500; }
+
+.theme-switcher {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    padding: 6px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    width: fit-content;
+}
+.theme-btn {
+    background: transparent; border: none; cursor: pointer;
+    font-family: inherit; font-size: 14px; font-weight: 500;
+    color: var(--text-secondary);
+    padding: 10px 18px;
+    border-radius: 10px;
+    transition: all 0.2s;
+    display: flex; align-items: center; gap: 10px;
+}
+.theme-btn:hover { color: var(--text-primary); background: var(--bg-card-hover); }
+.theme-btn.active {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: var(--glow-md);
+}
+.theme-btn .swatch {
+    width: 12px; height: 12px; border-radius: 4px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
+}
+.theme-btn[data-target="crimson"] .swatch { background: #E50914; }
+.theme-btn[data-target="ember"]   .swatch { background: #DC2626; }
+.theme-btn[data-target="neon"]    .swatch { background: #FF1744; }
+
+.palette-bar {
+    display: flex; gap: 16px;
+    margin-top: 18px; padding: 14px 18px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+}
+.palette-item { display: flex; align-items: center; gap: 8px; }
+.palette-chip { width: 14px; height: 14px; border-radius: 4px; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15); }
+.palette-item span { color: var(--text-secondary); }
+
+/* Section labels between component groups */
+.section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 56px 0 16px;
+    display: flex; align-items: center; gap: 14px;
+}
+.section-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: var(--border);
+}
+
+/* ============================================================
+   APP COMPONENTS (parallel to style.css but using new tokens)
+   ============================================================ */
+
+.topbar {
+    display: flex; align-items: center;
+    padding: 18px 32px;
+    margin: 0 -24px;
+    border-bottom: 1px solid var(--border);
+}
+.topbar-left { display: flex; align-items: center; gap: 12px; }
+.logo {
+    width: 40px; height: 40px; border-radius: 14px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: var(--glow-btn);
+}
+.brand-title { font-size: 18px; font-weight: 500; letter-spacing: -0.89px; color: #fff; }
+.brand-sub { font-size: 12px; color: rgba(var(--primary-soft-rgb), 0.7); }
+
+/* Landing */
+.content { max-width: 860px; margin: 0 auto; }
+.hero { text-align: center; padding: 40px 0 0; }
+.badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(var(--primary-rgb), 0.20);
+    border-radius: 9999px;
+    padding: 6px 16px; font-size: 14px;
+    color: var(--accent-text);
+}
+.hero h1 {
+    font-size: 36px; font-weight: 500; letter-spacing: -0.53px;
+    margin: 20px 0 12px; color: #fff;
+}
+.hero-desc {
+    font-size: 16px; color: var(--text-secondary);
+    max-width: 460px; margin: 0 auto;
+}
+.features { display: flex; justify-content: center; gap: 16px; padding: 48px 0 0; flex-wrap: wrap; }
+.feat {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 18px 24px; text-align: center;
+    width: 200px;
+}
+.feat-emoji { font-size: 22px; }
+.feat-title { font-size: 14px; color: var(--text-primary); margin-top: 6px; }
+.feat-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+.mode-label {
+    text-align: center; padding: 48px 0 0;
+    font-size: 14px; font-weight: 500; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: 1.25px;
+}
+.modes { display: flex; justify-content: center; gap: 24px; padding: 24px 0 0; flex-wrap: wrap; }
+.mode-card {
+    background: var(--bg-card); border: 2px solid var(--border);
+    border-radius: 16px; padding: 24px; width: 320px; text-align: left;
+    cursor: pointer; transition: border-color 0.2s, background 0.2s;
+}
+.mode-card:hover { border-color: rgba(var(--primary-rgb), 0.5); background: var(--bg-card-hover); }
+.mode-card.selected { border-color: var(--primary); background: var(--box-bg); }
+.mode-icon {
+    width: 40px; height: 40px; border-radius: 14px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: rgba(var(--primary-rgb), 0.20);
+}
+.mode-icon svg { width: 20px; height: 20px; color: var(--accent-text); }
+.rec-badge {
+    display: inline-block; background: var(--status-amber-bg-30);
+    color: var(--status-amber-gold);
+    font-size: 12px; font-weight: 500; padding: 2px 8px;
+    border-radius: 9999px; margin-left: 8px;
+}
+.mode-header { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+.mode-card h3 { font-size: 18px; font-weight: 500; color: #fff; margin: 0 0 12px; }
+.mode-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.mode-list li {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 14px; color: var(--text-secondary);
+}
+.mode-list li::before {
+    content: '✓'; color: var(--accent-text-mid); font-weight: 700;
+}
+
+.start-row { display: flex; justify-content: center; padding: 36px 0 0; }
+.start-btn {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff; border: none; border-radius: 14px;
+    padding: 14px 32px; font-size: 16px; font-weight: 500; font-family: inherit;
+    cursor: pointer; transition: all 0.2s;
+    box-shadow: var(--glow-md);
+}
+.start-btn:hover { box-shadow: var(--glow-lg); }
+
+/* Progress + tabs */
+.test-progress { padding: 24px 0 0; }
+.test-progress-header {
+    display: flex; justify-content: space-between;
+    font-size: 14px; color: var(--text-muted); margin-bottom: 8px;
+}
+.test-progress-track { height: 8px; background: var(--bg-elevated); border-radius: 9999px; overflow: hidden; }
+.test-progress-fill {
+    height: 100%; background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    border-radius: 9999px; width: 50%;
+}
+
+.test-part-tabs { display: flex; gap: 8px; padding: 8px 0 24px; }
+.test-part-tab {
+    flex: 1; height: 36px; border-radius: 14px; font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+}
+.test-part-tab.active {
+    background: var(--primary); color: #fff;
+    box-shadow: var(--glow-btn);
+}
+.test-part-tab.inactive {
+    background: var(--bg-card); color: rgba(var(--primary-soft-rgb), 0.5);
+}
+
+/* Test card */
+.test-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden;
+}
+.test-card-header {
+    background: var(--hero-gradient);
+    padding: 16px 24px;
+}
+.test-card-header h2 { font-size: 18px; font-weight: 500; color: #fff; }
+.test-card-header p { font-size: 14px; color: rgba(255,255,255,0.8); margin-top: 4px; }
+
+.test-card-body { padding: 24px; }
+
+.test-topic-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(var(--primary-rgb), 0.15);
+    border-radius: 10px;
+    padding: 6px 12px; font-size: 14px;
+    color: var(--accent-text); margin-bottom: 24px;
+}
+
+.test-time-limit {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 14px; color: var(--text-secondary);
+    padding: 12px 0 16px;
+}
+.test-time-limit svg { color: var(--status-amber); width: 16px; height: 16px; }
+
+.test-examiner-q {
+    font-size: 18px; font-weight: 500; color: var(--text-primary);
+    line-height: 28px; margin-bottom: 20px;
+}
+
+.test-record-area {
+    background: rgba(255,255,255,0.04);
+    border: 2px dashed rgba(255,255,255,0.10);
+    border-radius: 14px; padding: 24px;
+    display: flex; flex-direction: column; align-items: center;
+    min-height: 200px; justify-content: center; gap: 8px;
+}
+.test-mic-btn {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--primary); border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: var(--glow-btn);
+    transition: transform 0.15s;
+}
+.test-mic-btn:hover { transform: scale(1.05); }
+.test-mic-btn svg { width: 24px; height: 24px; color: #fff; }
+.record-prompt { font-size: 14px; color: var(--text-secondary); }
+.record-timer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px; color: var(--text-primary);
+}
+
+/* Prep card */
+.prep-topic-card {
+    background: linear-gradient(154deg,
+        rgba(var(--primary-rgb), 0.10) 0%,
+        rgba(255,255,255,0.04) 50%,
+        rgba(var(--primary-rgb), 0.10) 100%);
+    border: 1px solid rgba(var(--primary-rgb), 0.30);
+    border-radius: 16px;
+    overflow: hidden; margin-bottom: 24px;
+}
+.prep-topic-header {
+    display: flex; align-items: center; gap: 12px;
+    padding: 0 24px; height: 56px;
+    border-bottom: 1px solid var(--border);
+}
+.prep-topic-icon {
+    width: 32px; height: 32px; border-radius: 10px;
+    background: rgba(var(--primary-rgb), 0.20);
+    display: flex; align-items: center; justify-content: center;
+}
+.prep-topic-icon svg { color: var(--accent-text); width: 16px; height: 16px; }
+.prep-topic-label {
+    font-size: 12px; color: var(--accent-text);
+    letter-spacing: 1.4px; text-transform: uppercase;
+}
+.prep-topic-body { padding: 22px 24px; }
+.prep-topic-title { font-size: 18px; font-weight: 500; color: #fff; margin-bottom: 18px; }
+.prep-say-label {
+    font-size: 11px; color: rgba(var(--primary-soft-rgb), 0.5);
+    text-transform: uppercase; letter-spacing: 1.4px; margin-bottom: 10px;
+}
+.prep-bullet-list { display: flex; flex-direction: column; gap: 10px; }
+.prep-bullet-item { display: flex; align-items: flex-start; gap: 12px; }
+.prep-bullet-num {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: rgba(var(--primary-rgb), 0.22);
+    color: var(--accent-text-mid);
+    font-size: 12px; line-height: 22px; text-align: center; flex-shrink: 0;
+}
+.prep-bullet-text { font-size: 14px; color: var(--text-secondary); line-height: 22px; }
+
+.prep-bottom-row { display: flex; gap: 24px; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; }
+.prep-timer-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.prep-timer-circle-wrap { position: relative; width: 144px; height: 144px; }
+.prep-ring { position: absolute; top: 0; left: 0; }
+.prep-timer-inner {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.prep-timer-display {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 30px; color: #fff;
+}
+.prep-timer-remaining { font-size: 12px; color: var(--text-muted); }
+.prep-timer-label { font-size: 12px; color: var(--text-muted); }
+
+.prep-notes-card {
+    flex: 1; min-width: 280px;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden;
+}
+.prep-notes-header {
+    display: flex; align-items: center; gap: 8px; padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px; color: var(--text-secondary);
+}
+.prep-notes-area {
+    width: 100%; min-height: 108px; padding: 14px 16px;
+    background: transparent; border: none; color: #fff;
+    font-family: inherit; font-size: 14px; line-height: 22px;
+    resize: none; outline: none;
+}
+.prep-notes-area::placeholder { color: rgba(var(--primary-soft-rgb), 0.30); }
+
+.prep-tip-banner {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: var(--status-orange-bg-10);
+    border: 1px solid var(--status-orange-bg-15);
+    border-radius: 14px; padding: 14px 16px; margin-bottom: 16px;
+}
+.prep-tip-banner svg { color: var(--status-amber-gold); width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
+.prep-tip-banner p { font-size: 12px; line-height: 18px; color: rgba(254,230,133,0.75); }
+.prep-tip-bold { color: var(--status-amber-gold); font-weight: 500; }
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff; border: none; border-radius: 14px;
+    padding: 12px 24px; font-size: 15px; font-weight: 500;
+    font-family: inherit; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 8px;
+    box-shadow: var(--glow-md);
+    transition: box-shadow 0.2s;
+}
+.btn-primary:hover { box-shadow: var(--glow-lg); }
+.btn-secondary {
+    background: var(--bg-elevated); color: var(--text-secondary);
+    border: 1px solid var(--border); border-radius: 14px;
+    padding: 12px 24px; font-size: 15px; font-weight: 500;
+    font-family: inherit; cursor: pointer;
+}
+
+.prep-actions { display: flex; justify-content: space-between; align-items: center; }
+.prep-skip-btn {
+    background: none; border: none; cursor: pointer;
+    font-family: inherit; font-size: 14px; color: var(--text-muted);
+}
+
+/* Results */
+.res-header { text-align: center; padding: 24px 0; }
+.res-complete-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--status-green-bg);
+    border-radius: 9999px;
+    padding: 6px 16px; font-size: 14px; color: var(--status-green-light);
+    margin-bottom: 16px;
+}
+.res-title {
+    font-size: 30px; font-weight: 500; color: #fff;
+}
+
+.res-hero-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden; margin-bottom: 16px;
+}
+.res-hero-bg {
+    background: var(--hero-gradient);
+    padding: 28px; display: flex; flex-direction: column;
+    align-items: center; gap: 18px;
+}
+.res-hero-label { font-size: 14px; color: rgba(255,255,255,0.8); }
+.res-band-circle {
+    width: 112px; height: 112px; border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    border: 4px solid rgba(255,255,255,0.30);
+    display: flex; align-items: center; justify-content: center;
+}
+.res-band-num { font-size: 48px; color: #fff; }
+.res-cefr-pill {
+    background: rgba(255,255,255,0.15); border-radius: 10px;
+    padding: 6px 16px; font-size: 14px; color: #fff;
+}
+.res-hero-feedback { padding: 22px 24px; }
+.res-hero-feedback p { color: var(--text-secondary); font-size: 15px; line-height: 24px; }
+
+.res-score-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden;
+}
+.res-score-row {
+    display: flex; align-items: center; gap: 16px;
+    padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.res-score-row:last-child { border-bottom: none; }
+.res-score-badge {
+    width: 48px; height: 32px; border-radius: 10px; border: 1px solid;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0;
+}
+.res-score-info { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.res-score-name-row { display: flex; justify-content: space-between; }
+.res-score-name { font-size: 14px; color: var(--text-primary); }
+.res-score-weight { font-size: 12px; color: rgba(var(--primary-soft-rgb), 0.35); }
+.res-score-bar { height: 4px; background: rgba(255,255,255,0.1); border-radius: 9999px; overflow: hidden; }
+.res-score-bar-fill { height: 100%; border-radius: 9999px; }
+
+.res-actions { display: flex; justify-content: center; gap: 12px; padding: 24px 0; }
+.res-btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid rgba(255,255,255,0.15); border-radius: 14px;
+    background: none; color: var(--accent-text-strong); cursor: pointer;
+    font-family: inherit; font-size: 15px; font-weight: 500;
+    padding: 12px 22px;
+}
+
+/* Footer hint */
+.preview-footer {
+    margin-top: 64px; padding: 24px;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--text-muted);
+    letter-spacing: 1px;
+}
+.preview-footer code {
+    color: var(--accent-text);
+    background: var(--bg-card);
+    padding: 2px 6px; border-radius: 4px;
+}
+</style>
+</head>
+<body data-theme="crimson">
+
+<div class="preview-shell">
+
+    <div class="preview-head">
+        <div class="preview-eyebrow">// theme exploration</div>
+        <h1 class="preview-title">Speaking Test — <em>black & red</em> directions</h1>
+
+        <div class="theme-switcher" role="tablist">
+            <button class="theme-btn active" data-target="crimson" role="tab">
+                <span class="swatch"></span> Crimson Noir
+            </button>
+            <button class="theme-btn" data-target="ember" role="tab">
+                <span class="swatch"></span> Carbon Ember
+            </button>
+            <button class="theme-btn" data-target="neon" role="tab">
+                <span class="swatch"></span> Neon Pulse
+            </button>
+        </div>
+
+        <div class="palette-bar" id="paletteBar">
+            <!-- populated by JS -->
+        </div>
+    </div>
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="topbar-left">
+            <div class="logo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                    <line x1="12" y1="19" x2="12" y2="23"/>
+                </svg>
+            </div>
+            <div>
+                <div class="brand-title">AI Speaking Evaluator</div>
+                <div class="brand-sub">IELTS-style adaptive test</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-label">01 — Landing</div>
+
+    <div class="content">
+        <div class="hero">
+            <div class="badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z"/></svg>
+                Adaptive · Speech-graded
+            </div>
+            <h1>Practice IELTS speaking, get a band score in minutes.</h1>
+            <p class="hero-desc">Realistic three-part interview with adaptive questions, transcription, and detailed feedback across five criteria.</p>
+        </div>
+
+        <div class="features">
+            <div class="feat">
+                <div class="feat-emoji">🎤</div>
+                <div class="feat-title">Voice-graded</div>
+                <div class="feat-sub">WPM, pauses, fluency</div>
+            </div>
+            <div class="feat">
+                <div class="feat-emoji">🎯</div>
+                <div class="feat-title">5 criteria</div>
+                <div class="feat-sub">IELTS rubric</div>
+            </div>
+            <div class="feat">
+                <div class="feat-emoji">⚡</div>
+                <div class="feat-title">~12 min</div>
+                <div class="feat-sub">3-part interview</div>
+            </div>
+        </div>
+
+        <div class="mode-label">Choose mode</div>
+        <div class="modes">
+            <div class="mode-card selected">
+                <div class="mode-header">
+                    <div class="mode-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+                    </div>
+                    <span class="rec-badge">Recommended</span>
+                </div>
+                <h3>Voice mode</h3>
+                <ul class="mode-list">
+                    <li>Real-time speech transcription</li>
+                    <li>Fluency & pronunciation metrics</li>
+                    <li>Full IELTS-style experience</li>
+                </ul>
+            </div>
+            <div class="mode-card">
+                <div class="mode-header">
+                    <div class="mode-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                </div>
+                <h3>Text mode</h3>
+                <ul class="mode-list">
+                    <li>Type your responses</li>
+                    <li>Lexical & grammar scoring</li>
+                    <li>Faster, no microphone needed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="start-row">
+            <button class="start-btn">
+                Begin test
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="section-label">02 — Mid-test (Part 1 / Part 3)</div>
+
+    <div class="content">
+        <div class="test-progress">
+            <div class="test-progress-header">
+                <span>Part 2 of 3</span>
+                <span>Question 5 of 9</span>
+            </div>
+            <div class="test-progress-track">
+                <div class="test-progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="test-part-tabs">
+            <div class="test-part-tab inactive">Part 1 · Interview</div>
+            <div class="test-part-tab active">Part 2 · Long turn</div>
+            <div class="test-part-tab inactive">Part 3 · Discussion</div>
+        </div>
+
+        <div class="test-card">
+            <div class="test-card-header">
+                <h2>Part 1 — Interview</h2>
+                <p>Short familiar questions about you and everyday topics.</p>
+            </div>
+            <div class="test-card-body">
+                <div class="test-topic-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    Topic: Hometown
+                </div>
+
+                <div class="test-examiner-q">Can you describe the area where you grew up, and what you liked most about it?</div>
+
+                <div class="test-time-limit">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    Up to 45 seconds to respond
+                </div>
+
+                <div class="test-record-area">
+                    <span class="record-prompt">Tap to start recording</span>
+                    <button class="test-mic-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
+                    </button>
+                    <div class="record-timer">0:00 / 0:45</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-label">03 — Prep page (Part 2)</div>
+
+    <div class="content">
+        <div class="prep-topic-card">
+            <div class="prep-topic-header">
+                <div class="prep-topic-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <span class="prep-topic-label">Your Topic</span>
+            </div>
+            <div class="prep-topic-body">
+                <h3 class="prep-topic-title">Describe a book that had a strong impact on you.</h3>
+                <div class="prep-say-label">You should say</div>
+                <div class="prep-bullet-list">
+                    <div class="prep-bullet-item">
+                        <div class="prep-bullet-num">1</div>
+                        <div class="prep-bullet-text">What the book was about</div>
+                    </div>
+                    <div class="prep-bullet-item">
+                        <div class="prep-bullet-num">2</div>
+                        <div class="prep-bullet-text">When and how you read it</div>
+                    </div>
+                    <div class="prep-bullet-item">
+                        <div class="prep-bullet-num">3</div>
+                        <div class="prep-bullet-text">Why it had such a strong impact on you</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="prep-bottom-row">
+            <div class="prep-timer-wrap">
+                <div class="prep-timer-circle-wrap">
+                    <svg class="prep-ring" width="144" height="144" viewBox="0 0 144 144">
+                        <circle cx="72" cy="72" r="52" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="6"/>
+                        <circle cx="72" cy="72" r="52" fill="none" stroke="url(#prepGrad)" stroke-width="6" stroke-linecap="round"
+                                stroke-dasharray="326.7" stroke-dashoffset="98"
+                                transform="rotate(-90 72 72)"/>
+                        <defs>
+                            <linearGradient id="prepGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="var(--ring-stop-1)"/>
+                                <stop offset="100%" stop-color="var(--ring-stop-2)"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="prep-timer-inner">
+                        <span class="prep-timer-display">0:42</span>
+                        <span class="prep-timer-remaining">remaining</span>
+                    </div>
+                </div>
+                <div class="prep-timer-label">Preparation time</div>
+            </div>
+
+            <div class="prep-notes-card">
+                <div class="prep-notes-header">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    <span>Notes</span>
+                </div>
+                <textarea class="prep-notes-area" placeholder="Jot down a few keywords…">- "Sapiens" by Harari
+- read on a long train ride
+- changed how I think about history</textarea>
+            </div>
+        </div>
+
+        <div class="prep-tip-banner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <p><span class="prep-tip-bold">Tip:</span> use the full minute. Strong answers cover all three bullets and add a personal anecdote.</p>
+        </div>
+
+        <div class="prep-actions">
+            <button class="prep-skip-btn">Skip prep →</button>
+            <button class="btn-primary">
+                I'm ready, start speaking
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="section-label">04 — Results</div>
+
+    <div class="content">
+        <div class="res-header">
+            <div class="res-complete-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Test complete
+            </div>
+            <h1 class="res-title">Here's how you scored</h1>
+        </div>
+
+        <div class="res-hero-card">
+            <div class="res-hero-bg">
+                <span class="res-hero-label">Overall band score</span>
+                <div class="res-band-circle"><span class="res-band-num">7.5</span></div>
+                <div class="res-cefr-pill">CEFR C1 · Advanced</div>
+            </div>
+            <div class="res-hero-feedback">
+                <p>You spoke fluently with a wide vocabulary and clear pronunciation. Minor hesitations in Part 3 and occasional grammar slips kept you just below an 8.0 — focus on linking devices and complex tenses to break through.</p>
+            </div>
+        </div>
+
+        <div class="res-score-card">
+            <div class="res-score-row">
+                <div class="res-score-badge" style="background:rgba(0,188,125,0.15);border-color:rgba(0,188,125,0.25);color:#00D492">8</div>
+                <div class="res-score-info">
+                    <div class="res-score-name-row"><span class="res-score-name">Fluency & Coherence</span><span class="res-score-weight">25%</span></div>
+                    <div class="res-score-bar"><div class="res-score-bar-fill" style="width:89%;background:linear-gradient(90deg,#00D492,#00BC7D)"></div></div>
+                </div>
+            </div>
+            <div class="res-score-row">
+                <div class="res-score-badge" style="background:rgba(0,188,125,0.15);border-color:rgba(0,188,125,0.25);color:#00D492">7.5</div>
+                <div class="res-score-info">
+                    <div class="res-score-name-row"><span class="res-score-name">Lexical Resource</span><span class="res-score-weight">25%</span></div>
+                    <div class="res-score-bar"><div class="res-score-bar-fill" style="width:83%;background:linear-gradient(90deg,#00D492,#00BC7D)"></div></div>
+                </div>
+            </div>
+            <div class="res-score-row">
+                <div class="res-score-badge" style="background:rgba(254,154,0,0.15);border-color:rgba(254,154,0,0.25);color:#FFB900">6.5</div>
+                <div class="res-score-info">
+                    <div class="res-score-name-row"><span class="res-score-name">Grammar Range & Accuracy</span><span class="res-score-weight">25%</span></div>
+                    <div class="res-score-bar"><div class="res-score-bar-fill" style="width:72%;background:linear-gradient(90deg,#FFB900,#FE9A00)"></div></div>
+                </div>
+            </div>
+            <div class="res-score-row">
+                <div class="res-score-badge" style="background:rgba(0,188,125,0.15);border-color:rgba(0,188,125,0.25);color:#00D492">7.5</div>
+                <div class="res-score-info">
+                    <div class="res-score-name-row"><span class="res-score-name">Pronunciation</span><span class="res-score-weight">15%</span></div>
+                    <div class="res-score-bar"><div class="res-score-bar-fill" style="width:83%;background:linear-gradient(90deg,#00D492,#00BC7D)"></div></div>
+                </div>
+            </div>
+            <div class="res-score-row">
+                <div class="res-score-badge" style="background:rgba(0,188,125,0.15);border-color:rgba(0,188,125,0.25);color:#00D492">8</div>
+                <div class="res-score-info">
+                    <div class="res-score-name-row"><span class="res-score-name">Speech Delivery</span><span class="res-score-weight">10%</span></div>
+                    <div class="res-score-bar"><div class="res-score-bar-fill" style="width:89%;background:linear-gradient(90deg,#00D492,#00BC7D)"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="res-actions">
+            <button class="btn-primary">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                Try another test
+            </button>
+            <button class="res-btn-outline">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download report
+            </button>
+        </div>
+    </div>
+
+    <div class="preview-footer">
+        Pick one and tell me which · once chosen I'll port the palette into <code>style.css</code> + <code>ui.js</code>
+    </div>
+
+</div>
+
+<script>
+/* Theme switcher + palette readout */
+const palettes = {
+    crimson: [
+        { name: 'bg',       value: '#0A0A0A' },
+        { name: 'primary',  value: '#E50914' },
+        { name: 'light',    value: '#FF3144' },
+        { name: 'dark',     value: '#B91C1C' },
+        { name: 'accent',   value: '#FCA5A5' },
+        { name: 'text',     value: '#FAFAFA' },
+    ],
+    ember: [
+        { name: 'bg',       value: '#0E0907' },
+        { name: 'primary',  value: '#DC2626' },
+        { name: 'light',    value: '#F87171' },
+        { name: 'dark',     value: '#991B1B' },
+        { name: 'accent',   value: '#FECACA' },
+        { name: 'text',     value: '#FAF5E6' },
+    ],
+    neon: [
+        { name: 'bg',       value: '#000000' },
+        { name: 'primary',  value: '#FF1744' },
+        { name: 'light',    value: '#FF5577' },
+        { name: 'dark',     value: '#D50032' },
+        { name: 'accent',   value: '#FFB4C0' },
+        { name: 'text',     value: '#FFFFFF' },
+    ],
+};
+
+const paletteBar = document.getElementById('paletteBar');
+const buttons = document.querySelectorAll('.theme-btn');
+
+function setTheme(name) {
+    document.body.setAttribute('data-theme', name);
+    buttons.forEach(b => b.classList.toggle('active', b.dataset.target === name));
+    paletteBar.innerHTML = palettes[name].map(c =>
+        `<div class="palette-item">
+            <div class="palette-chip" style="background:${c.value}"></div>
+            <span>${c.name}</span>
+            <span style="opacity:0.7">${c.value}</span>
+        </div>`
+    ).join('');
+}
+
+buttons.forEach(b => b.addEventListener('click', () => setTheme(b.dataset.target)));
+setTheme('crimson');
+</script>
+
+</body>
+</html>
