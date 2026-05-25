@@ -50,11 +50,11 @@ Many people in my family are Spanish speakers and wanted a way to practice spoke
 
 ## Walkthrough
 
-**Part 1 — Interview**
+**Recording interface (Parts 1 & 3)**
 
-Three short topics with two questions each. The AI examiner reads each question aloud and the candidate responds within a per-question time limit.
+Parts 1 and 3 share the same recording screen. The examiner reads each question aloud and the candidate responds within a per-question time limit — Part 1 covers familiar topics with short questions, while Part 3 raises abstract follow-ups tied to the Part 2 theme.
 
-<img src="screenshots/part1.png" alt="Part 1 — Interview" width="800">
+<img src="screenshots/part1.png" alt="Recording interface — Parts 1 & 3" width="800">
 
 **Part 2 — Long Turn**
 
