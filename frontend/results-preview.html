@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results Preview — B1 sample</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div id="app"></div>
+
+    <script src="/js/ui.js"></script>
+    <script>
+    // Stub the App global so the "Take Another Test" button doesn't error
+    window.App = { retake: () => location.reload() };
+
+    // Realistic mock results for an average intermediate (B1) English learner
+    const mockData = {
+        scores: {
+            final_band: 5.0,
+            cefr_level: 'B1',
+            overall_feedback: "You demonstrated solid intermediate-level English and were able to communicate on familiar topics with reasonable clarity. Your responses showed good effort, though hesitation and limited vocabulary sometimes interrupted the flow of your speech. With more practice in grammar accuracy and a wider range of vocabulary, you can confidently move toward an upper-intermediate (B2) level.",
+            strengths: [
+                "Communicated clearly on familiar topics like family and daily routines",
+                "Used basic connectors like 'and', 'but', 'because' to link ideas",
+                "Generally understandable pronunciation throughout the test"
+            ],
+            areas_for_improvement: [
+                "Frequent hesitations while searching for words — practice speaking aloud daily",
+                "Limited vocabulary — relies on simple words like 'good' and 'nice'",
+                "Recurring tense errors, especially past simple vs. present perfect"
+            ],
+            scores: {
+                fluency_coherence:  { score: 5 },
+                lexical_resource:   { score: 4 },
+                grammatical_range:  { score: 4 },
+                coherence_cohesion: { score: 5 },
+                task_achievement:   { score: 5 }
+            }
+        }
+    };
+
+    document.getElementById('app').innerHTML = UI.results(mockData);
+    </script>
+</body>
+</html>

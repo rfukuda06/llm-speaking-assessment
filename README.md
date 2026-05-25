@@ -4,18 +4,7 @@
 
 An AI-powered English speaking test that simulates an IELTS-style structured interview. The system generates adaptive questions, analyzes responses through a speech + LLM pipeline, and produces band scores (1–9) with detailed CEFR-mapped feedback.
 
----
-
-## Screenshots
-
-**Home — choose voice or text mode**
-![Home Page](Home%20page.png)
-
-**Live Test — Part 1 with AI examiner and voice recording**
-![Part 1 Test](part1.png)
-
-**Results — IELTS band score, CEFR level, and score breakdown**
-![Results](results.png)
+![Home Page](home.png)
 
 ---
 
@@ -53,17 +42,49 @@ An AI-powered English speaking test that simulates an IELTS-style structured int
 
 ---
 
+## Why I Built This
+
+Many people in my family are Spanish speakers and wanted a way to practice spoken English without pressure. This project provides a realistic, adaptive speaking test with rubric-based feedback powered by speech and LLM evaluation.
+
+---
+
+## Walkthrough
+
+**Part 1 — Interview**
+
+Three short topics with two questions each. The AI examiner reads each question aloud and the candidate responds within a per-question time limit.
+
+<img src="part1.png" alt="Part 1 — Interview" width="800">
+
+**Part 2 — Long Turn**
+
+A prompt card with structured bullet points and a one-minute preparation timer. The candidate can jot notes before delivering a 1–2 minute response.
+
+<img src="part2.png" alt="Part 2 — Long Turn" width="800">
+
+**Part 3 — Discussion**
+
+Three abstract follow-up questions tied to the Part 2 theme. The examiner probes deeper for reasoning, examples, and thematic depth.
+
+<img src="part3.png" alt="Part 3 — Discussion" width="800">
+
+**Results**
+
+Hybrid scoring combines objective speech metrics with LLM rubric evaluation, producing an IELTS band score, CEFR level, written feedback, and a per-criterion breakdown.
+
+<img src="results.png" alt="Results" width="800">
+
+---
+
 ## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| **Backend** | Python, FastAPI |
-| **Frontend** | Vanilla JS, HTML, CSS |
-| **LLM — Examiner** | OpenAI GPT-4o-mini |
-| **LLM — Scoring** | OpenAI GPT-4o |
-| **Speech-to-Text** | OpenAI Whisper |
-| **Text-to-Speech** | OpenAI TTS |
-| **Config** | python-dotenv |
+- **Backend:** Python, FastAPI
+- **Frontend:** Vanilla JS, HTML, CSS
+- **LLM (Examiner):** OpenAI GPT-4o-mini
+- **LLM (Scoring):** OpenAI GPT-4o
+- **Speech-to-Text:** OpenAI Whisper
+- **Text-to-Speech:** OpenAI TTS
+- **Config:** python-dotenv
 
 ---
 
@@ -124,9 +145,3 @@ uvicorn backend.main:app --reload
 ```
 
 Open [http://localhost:8000](http://localhost:8000) in your browser.
-
----
-
-## Why I Built This
-
-Many people in my family are Spanish speakers and wanted a way to practice spoken English without pressure. This project provides a realistic, adaptive speaking test with rubric-based feedback powered by speech and LLM evaluation.
