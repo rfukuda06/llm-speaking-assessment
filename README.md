@@ -1,8 +1,8 @@
-# AI Speaking Evaluator
+# LLM Speaking Assessment
 
-**Live at: [ai-speaking-evaluator.onrender.com](https://ai-speaking-evaluator.onrender.com)**
+**[ai-speaking-evaluator.onrender.com](https://ai-speaking-evaluator.onrender.com)**
 
-An IELTS-style speaking test simulator. A GPT-4o-mini examiner drives an adaptive three-part interview, OpenAI Whisper transcribes the candidate's speech, and a GPT-4o scoring pipeline produces band scores (1–9) with CEFR mapping and per-criterion feedback.
+An IELTS-style speaking test simulator. A GPT-4o-mini examiner drives an adaptive three-part interview, Whisper transcribes the candidate's speech, and a GPT-4o scoring pipeline produces band scores (1–9) with CEFR mapping and per-criterion feedback.
 
 ![Home Page](screenshots/home.png)
 
@@ -14,7 +14,7 @@ An IELTS-style speaking test simulator. A GPT-4o-mini examiner drives an adaptiv
 - **3-part adaptive interview** — mirrors the IELTS Speaking exam structure (interview, long turn, discussion)
 - **GPT-4o-mini examiner** — generates contextual follow-up questions conditioned on the candidate's response history
 - **Relevance detection** — flags off-topic answers and rephrases the question before skipping
-- **OpenAI TTS playback** — examiner questions are synthesized and read aloud in voice mode
+- **TTS playback** — examiner questions are synthesized and read aloud in voice mode
 - **Hybrid scoring** — objective speech metrics (WPM, pause ratio, response duration) fused with GPT-4o rubric evaluation
 - **IELTS band scores (1–9)** with CEFR mapping (A1–C2) and per-criterion breakdown
 
