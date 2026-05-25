@@ -2,20 +2,20 @@
 
 **Live at: [ai-speaking-evaluator.onrender.com](https://ai-speaking-evaluator.onrender.com)**
 
-An AI-powered English speaking test that simulates an IELTS-style structured interview. The system generates adaptive questions, analyzes responses through a speech + LLM pipeline, and produces band scores (1–9) with detailed CEFR-mapped feedback.
+An IELTS-style speaking test simulator. A GPT-4o-mini examiner drives an adaptive three-part interview, OpenAI Whisper transcribes the candidate's speech, and a GPT-4o scoring pipeline produces band scores (1–9) with CEFR mapping and per-criterion feedback.
 
-![Home Page](home.png)
+![Home Page](screenshots/home.png)
 
 ---
 
 ## Features
 
-- **Voice & Text modes** — record spoken responses or type them
-- **3-part adaptive interview** — mirrors the IELTS speaking exam structure
-- **AI examiner** — generates contextual follow-up questions based on your answers
-- **Relevance detection** — redirects off-topic responses before skipping
-- **Real-time TTS** — questions are read aloud in voice mode
-- **Hybrid scoring** — objective speech metrics (WPM, pauses) combined with LLM evaluation
+- **Voice & text input modes** — Whisper STT for spoken responses, or direct text entry
+- **3-part adaptive interview** — mirrors the IELTS Speaking exam structure (interview, long turn, discussion)
+- **GPT-4o-mini examiner** — generates contextual follow-up questions conditioned on the candidate's response history
+- **Relevance detection** — flags off-topic answers and rephrases the question before skipping
+- **OpenAI TTS playback** — examiner questions are synthesized and read aloud in voice mode
+- **Hybrid scoring** — objective speech metrics (WPM, pause ratio, response duration) fused with GPT-4o rubric evaluation
 - **IELTS band scores (1–9)** with CEFR mapping (A1–C2) and per-criterion breakdown
 
 ---
@@ -54,25 +54,25 @@ Many people in my family are Spanish speakers and wanted a way to practice spoke
 
 Three short topics with two questions each. The AI examiner reads each question aloud and the candidate responds within a per-question time limit.
 
-<img src="part1.png" alt="Part 1 — Interview" width="800">
+<img src="screenshots/part1.png" alt="Part 1 — Interview" width="800">
 
 **Part 2 — Long Turn**
 
 A prompt card with structured bullet points and a one-minute preparation timer. The candidate can jot notes before delivering a 1–2 minute response.
 
-<img src="part2.png" alt="Part 2 — Long Turn" width="800">
+<img src="screenshots/part2.png" alt="Part 2 — Long Turn" width="800">
 
 **Part 3 — Discussion**
 
 Three abstract follow-up questions tied to the Part 2 theme. The examiner probes deeper for reasoning, examples, and thematic depth.
 
-<img src="part3.png" alt="Part 3 — Discussion" width="800">
+<img src="screenshots/part3.png" alt="Part 3 — Discussion" width="800">
 
 **Results**
 
 Hybrid scoring combines objective speech metrics with LLM rubric evaluation, producing an IELTS band score, CEFR level, written feedback, and a per-criterion breakdown.
 
-<img src="results.png" alt="Results" width="800">
+<img src="screenshots/results.png" alt="Results" width="800">
 
 ---
 
