@@ -48,25 +48,25 @@ Many people in my family are Spanish speakers and wanted a way to practice spoke
 
 ---
 
-## Walkthrough
+## Highlights
 
-**Recording interface (Parts 1 & 3)**
+**Voice recording interface**
 
-Parts 1 and 3 share the same recording screen. The examiner reads each question aloud and the candidate responds within a per-question time limit — Part 1 covers familiar topics with short questions, while Part 3 raises abstract follow-ups tied to the Part 2 theme.
+The examiner question plays aloud and the candidate records a timed response — the core interaction across the interview and discussion stages.
 
-<img src="screenshots/part1.png" alt="Recording interface — Parts 1 & 3" width="800">
+<img src="screenshots/part1.png" alt="Voice recording interface" width="800">
 
-**Part 2 — Long Turn**
+**Preparation timer**
 
 A prompt card with structured bullet points and a one-minute preparation timer. The candidate can jot notes before delivering a 1–2 minute response.
 
-<img src="screenshots/part2.png" alt="Part 2 — Long Turn" width="800">
+<img src="screenshots/part2.png" alt="Preparation timer" width="800">
 
-**Results**
+**Scored results**
 
 Hybrid scoring combines objective speech metrics with LLM rubric evaluation, producing an IELTS band score, CEFR level, written feedback, and a per-criterion breakdown.
 
-<img src="screenshots/results.png" alt="Results" width="800">
+<img src="screenshots/results.png" alt="Scored results" width="800">
 
 ---
 
